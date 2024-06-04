@@ -36,7 +36,7 @@ while getopts "c:r:" opt; do
       if [ "$OPTARG" ]; then
         echo "remove a single flag"
       else
-        echo "remove all flags"
+        flags = ""
       fi
       ;;
     l)
