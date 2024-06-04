@@ -44,7 +44,7 @@ else
 fi
 
 cd $(dirname $proj_dir)
-if [ "$valgrind" ]; then
+if [ "$valgrind" == "true" ]; then
   $exe_dir/testing -v
 else
   $exe_dir/testing
