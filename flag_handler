@@ -97,7 +97,7 @@ done
 #COMPILATION WOOOOOO
 comp_flags=""
 if [ "$valgrind" == "true" ]; then
-  comp_flags+=" -v"
+  comp_flags+="-v"
 fi
 if [ "$comp_dir" ]; then
   comp_flags+=" -d $comp_dir"
