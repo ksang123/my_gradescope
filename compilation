@@ -37,9 +37,9 @@ while getopts "vd:" opt; do
 done
 
 if [ "$flags" ]; then
-  echo /usr/bin/$compiler $flags $proj_dir -o output_exe
+  /usr/bin/$compiler $flags $proj_dir -o output_exe
 else
-  echo /usr/bin/$compiler$proj_dir -o output_exe
+  /usr/bin/$compiler $proj_dir -o output_exe
 fi
 
 
