@@ -48,3 +48,4 @@ done
 
 # save the compiler and flags
 sed -i "s/^compiler:.*/compiler: $compiler/" "$defaults"
+echo "save the flags here"
