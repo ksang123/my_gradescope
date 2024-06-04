@@ -37,6 +37,7 @@ while getopts "c:rr:a:hl" opt; do
       if [ "$OPTARG" ]; then
         echo "remove a single flag"
       else
+        echo "compiler: $compiler" > "$defaults"
         flags=""
       fi
       ;;
