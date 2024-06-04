@@ -76,7 +76,7 @@ while getopts "c:r:xa:hld:" opt; do
       fi
       ;;
     \?)
-      echo "Invalid option: -$OPTARG" >&2
+      echo "$RED" "Invalid option: -$OPTARG" "$NC" >&2
       exit 1
       ;;
   esac
