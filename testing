@@ -3,6 +3,8 @@
 valgrind=""
 output="~/.output_exe"
 
+pwd
+
 while getopts "v" opt; do
   case $opt in
     v)
