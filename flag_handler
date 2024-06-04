@@ -34,4 +34,4 @@ while getopts "c:" opt; do
 done
 
 # save the compiler and flags
-sed -i 's/^compiler: */compiler: $compiler' "$defaults" 
+sed -i "s/^compiler:.*/compiler: $compiler/" "$defaults"
