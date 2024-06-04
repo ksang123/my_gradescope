@@ -73,6 +73,7 @@ while getopts "c:r:xa:hld:" opt; do
         comp_dir="$OPTARG"
       else
         echo "{RED}invalid compilation directory{NC}"
+      fi
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
