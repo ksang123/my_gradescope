@@ -36,7 +36,10 @@ while getopts "vd:" opt; do
   esac
 done
 
-echo /usr/bin/$compiler $flags$proj_dir -o output_exe
+if [ "$flags" ]; then
+  echo /usr/bin/$compiler $flags $proj_dir -o output_exe
+else
+  echo /usr/bin/$compiler$proj_dir -o output_exe
 
 
 
