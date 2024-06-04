@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# todo:
+# 0 add a proj dir
+# 1 compile using the compiler and the flags
+# 2 run simple tests
+# 3 run valgrind
+
+# endgame shit:
+# run complex tests

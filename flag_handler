@@ -19,14 +19,20 @@
 # -v for not using valgrind
 
 
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
 proj_dir="$HOME/.gradescope"
 defaults="$HOME/.defaults"
 #get the default compiler and flags
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //')
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
 valgrind=true
+dir=false
+comp_dir=""
 
-while getopts "c:r:xa:hl" opt; do
+while getopts "c:r:xa:hld:" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
@@ -60,6 +66,13 @@ while getopts "c:r:xa:hl" opt; do
       ;;
     v)
       valgrind=false
+      ;;
+    d)
+      dir=true
+      if [-e "$OPTARG"]; then
+        comp_dir="$OPTARG"
+      else
+        echo "{RED}invalid compilation directory{NC}"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
