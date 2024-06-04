@@ -50,4 +50,4 @@ else
   $exe_dir/testing
 fi
 
-rm ~/.output_exe
+#rm ~/.output_exe
