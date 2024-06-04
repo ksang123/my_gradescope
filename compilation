@@ -18,6 +18,7 @@ NC='\033[0m'
 valgrind="false"
 proj_dir=""
 defaults="$HOME/.defaults"
+exe_dir="$HOME/.gradescope"
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //')
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
 
@@ -39,9 +40,11 @@ done
 if [ "$flags" ]; then
   /usr/bin/$compiler $flags $proj_dir -o output_exe
 else
-  /usr/bin/$compiler $proj_dir -o output_exe
+  /usr/bin/$compiler $proj_dir -o ~/.output_exe
 fi
 
+if [ "$valgrind" ]; then
+  $exe_dir/testing
+fi
 
-
-rm output_exe
+rm ~/.output_exe

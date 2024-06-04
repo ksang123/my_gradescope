@@ -1,0 +1,16 @@
+#!/bin/bash
+
+valgrind=""
+output="~/.output_exe"
+
+while getopts "v" opt; do
+  case $opt in
+    v)
+      valgrind="true"
+      ;;
+    \?)
+      echo -e "$RED" "Invalid option: -$OPTARG" "$NC"
+      exit 1
+      ;;
+  esac
+done
