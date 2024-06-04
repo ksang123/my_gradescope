@@ -99,4 +99,4 @@ fi
 if [ dir ]; then
   comp_flags+="-d $comp_dir"
 fi
-"$proj_dir/compilation" "$comp_flags"
+echo "$proj_dir/compilation" "$comp_flags"
