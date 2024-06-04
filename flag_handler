@@ -18,17 +18,16 @@
 
 proj_dir="$HOME/.gradescope"
 #get the default compiler and flags
-compiler="$proj_dir/defaults"
+compiler=$(grep "compiler: " "$proj_dir/defaults" | sed 's/compiler: //') 
 
 while getopts "c:" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
       ;;
-    a)
-
     \?)
-      echo "yet to be made"
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
       ;;
   esac
 done
