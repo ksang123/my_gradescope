@@ -69,10 +69,10 @@ while getopts "c:r:xa:hld:" opt; do
       ;;
     d)
       dir=true
-      if [-e "$OPTARG"]; then
+      if [ -e "$OPTARG" ]; then
         comp_dir="$OPTARG"
       else
-        echo "{$RED}invalid compilation directory{$NC}"
+        echo -e "{$RED}invalid compilation directory{$NC}"
       fi
       ;;
     \?)
