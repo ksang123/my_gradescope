@@ -37,4 +37,4 @@ while getopts "vd:" opt; do
 done
 
 echo "/usr/bin/$compiler$flags$proj_dir -o output_executable"
-"$compiler -v"
+$compiler -v
