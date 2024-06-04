@@ -104,4 +104,4 @@ if [ "$comp_dir" ]; then
 else
   comp_flags+="-d $0"
 fi
-echo "$proj_dir/compilation" "$comp_flags"
+"$proj_dir/compilation" "$comp_flags"
