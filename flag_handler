@@ -24,7 +24,7 @@ defaults="$HOME/.defaults"
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
 flags=$(grep "^flag:" "$defaults" | awk '{print substr($0, index($0,$2))}')
 
-while getopts "c:rr:a:" opt; do
+while getopts "c:rr:a:hl" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
@@ -57,8 +57,6 @@ done
 # save the compiler and flags
 echo "compiler: $compiler" > "$defaults"
 for flag in "$flags"; do
-  if [ "$flag" ]; then
-    printf "flag: %s\n" "$flag" >> "$defaults"
-    echo "i hate myself"
-  fi
+  printf "flag: %s\n" "$flag" >> "$defaults"
+  echo "i hate myself"
 done
