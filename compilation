@@ -35,5 +35,5 @@ while getopts "vd:" opt; do
       ;;
   esac
 done
-
+echo "$proj_dir"
 "$compiler$flags$proj_dir -o output_executable"
