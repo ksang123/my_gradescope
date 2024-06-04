@@ -7,4 +7,27 @@
 # 3 run valgrind
 
 # endgame shit:
-# run complex tests
+# run complex tests pattern matching
+# scrape other files from project
+
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+valgrind="false"
+proj_dir=""
+
+while getopts "vd:" opt; do
+  case $opt in
+    v)
+      valgrind="true"
+      ;;
+    d)
+
+    \?)
+      echo -e "$RED" "Invalid option: -$OPTARG" "$NC"
+      exit 1
+      ;;
+  esac
+done

@@ -29,7 +29,6 @@ defaults="$HOME/.defaults"
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //')
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
 valgrind="true"
-dir="false"
 comp_dir=""
 
 while getopts "c:r:xa:hld:v" opt; do
@@ -68,7 +67,6 @@ while getopts "c:r:xa:hld:v" opt; do
       valgrind="false"
       ;;
     d)
-      dir="true"
       if [ -e "$OPTARG" ]; then
         if [[ "$OPTARG" == *.c || "$OPTARG" == *.cpp ]]; then
           comp_dir="$OPTARG"
@@ -101,7 +99,7 @@ comp_flags=""
 if [ "$valgrind" == "true" ]; then
   comp_flags+="-v "
 fi
-if [ "$dir" == "true" ]; then
+if [ "$comp_dir" ]; then
   comp_flags+="-d $comp_dir"
 fi
 echo "$proj_dir/compilation" "$comp_flags"
