@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# deal with the flags
+# possible flags:
+# -c for compiler
+# -a for adding flags
+# -r :flag: for remove a flag
+# -r for removing all flags
+# -l for listing the flags
+# -h for help
+# -f pattern for files
+# -t pattern for tests
+# -e pattern for expected
+# -d project directory
+# -j for tests in json
+
+# finished flags:
+
+proj_dir="$HOME/.gradescope"
+compiler="gcc"
+
+while getopts "c:" opt; do
+  case $opt in
+    c)
+      compiler="$OPTARG"
+      ;;
+    \?)
+      echo "yet to be made"
+      ;;
+  esac
+done
+
+# check that we have the compiler
+echo "$compiler"

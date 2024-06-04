@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#TODO list:
+# 1. import the helper scripts from github (super cool)
+# 2. idk ill figure it out soon lol
+
+# first make a folder to save some data
+proj_dir="$HOME/.gradescope"
+if ! test -d "$proj_dir"; then
+  mkdir "$proj_dir"
+  #github clone goes here
+  #make all scripts runable
+fi
+
+echo "$proj_dir/github/script1 $@"
+
+
