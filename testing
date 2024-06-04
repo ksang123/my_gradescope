@@ -24,7 +24,7 @@ done
 #simple testing
 for test_file in test*.in; do
   test_number="${test_file%.*}"
-  echo $source_file < "$test_file" > "$test_number.out"
+  echo "$source_file < "$test_file" > "$test_number.out""
   if diff -q "$test_number.out" "$test_number.expected" >/dev/null; then
       echo -e "${GREEN}Test $test_number passed.${NC}"
   else
