@@ -3,8 +3,6 @@
 # deal with the flags
 
 # possible flags:
-# -l for listing the flags
-# -h for help
 # -f pattern for files
 # -t pattern for tests
 # -e pattern for expected
@@ -16,6 +14,8 @@
 # -a for adding flags
 # -r :flag: for remove a flag
 # -r for removing all flags
+# -l for listing the flags
+# -h for help
 
 
 proj_dir="$HOME/.gradescope"
@@ -30,7 +30,7 @@ while getopts "c:r:" opt; do
       compiler="$OPTARG"
       ;;
     a)
-      echo "add the flag"
+      echo "flag: $OPTARG" >> "$defaults"
       ;;
     r)
       if [ "$OPTARG" ]; then
@@ -38,6 +38,12 @@ while getopts "c:r:" opt; do
       else
         echo "remove all flags"
       fi
+      ;;
+    l)
+      echo "$flags"
+      ;;
+    h)
+      echo "help yourself"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
