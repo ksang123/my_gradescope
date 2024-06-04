@@ -36,4 +36,4 @@ while getopts "vd:" opt; do
   esac
 done
 
-"$compiler $flags $proj_dir -o output_executable"
+"$compiler $flags$proj_dir -o output_executable"
