@@ -58,6 +58,6 @@ done
 echo "compiler: $compiler" > "$defaults"
 for flag in "$flags"; do
   if [ "$flag" ]; then
-    echo "flag: $flag" >> "$defaults"
+    printf "flag: %s" "$flag" >> "$defaults"
   fi
 done
