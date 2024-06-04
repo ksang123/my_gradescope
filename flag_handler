@@ -22,7 +22,7 @@ proj_dir="$HOME/.gradescope"
 defaults="$HOME/.defaults"
 #get the default compiler and flags
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
-flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
+flags=$(grep "^flag:" "$defaults" | awk '{print substr($0, index($0,$2))}')
 
 while getopts "c:rr:a:" opt; do
   case $opt in
@@ -31,7 +31,7 @@ while getopts "c:rr:a:" opt; do
       ;;
     a)
       echo "flag: $OPTARG" >> "$defaults" #remove the \n
-      flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
+      flags=$(grep "^flag:" "$defaults" | awk '{print substr($0, index($0,$2))}')
       echo "$flags"
       ;;
     r)
