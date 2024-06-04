@@ -5,7 +5,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 valgrind=""
-source_file="~/.output_exe"
+source_file=".output_exe"
 
 pwd
 
@@ -21,12 +21,10 @@ while getopts "v" opt; do
   esac
 done
 
-$source_file
-
 #simple testing
 for test_file in test*.in; do
   test_number="${test_file%.*}"
-  $source_file < "$test_file" > "$test_number.out"
+  ~/$source_file < "$test_file" > "$test_number.out"
   if diff -q "$test_number.out" "$test_number.expected" >/dev/null; then
       echo -e "${GREEN}Test $test_number passed.${NC}"
   else
@@ -37,7 +35,7 @@ done
 if [ "$valgrind" ]; then
   for test_file in test*.in; do
     test_number="${test_file%.*}"
-    if ! valgrind_output=$(valgrind --leak-check=full $source_file < "$test_file" 2>&1 | grep "definitely lost"); then
+    if ! valgrind_output=$(valgrind --leak-check=full ~/$source_file < "$test_file" 2>&1 | grep "definitely lost"); then
         echo -e "${GREEN}No memory leaks found in test $test_number.${NC}"
     else
         echo -e "${RED}Memory leaks found in test $test_number.${NC}"
