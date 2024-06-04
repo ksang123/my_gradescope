@@ -17,18 +17,21 @@
 # finished flags:
 
 proj_dir="$HOME/.gradescope"
-compiler="gcc"
+#get the default compiler and flags
+compiler="$proj_dir/defaults"
 
 while getopts "c:" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
       ;;
+    a)
+
     \?)
       echo "yet to be made"
       ;;
   esac
 done
 
-# check that we have the compiler
+# save the compiler and flags
 echo "$compiler"
