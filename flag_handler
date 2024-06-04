@@ -24,7 +24,7 @@ defaults="$HOME/.defaults"
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
 
-while getopts "c:rr:a:hl" opt; do
+while getopts "c:r:ra:hl" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
