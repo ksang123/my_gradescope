@@ -7,8 +7,6 @@ NC='\033[0m'
 valgrind=""
 source_file=".output_exe"
 
-pwd
-
 while getopts "v" opt; do
   case $opt in
     v)
@@ -21,7 +19,7 @@ while getopts "v" opt; do
   esac
 done
 
-echo $valgrind
+
 #simple testing
 for test_file in test*.in; do
   test_number="${test_file%.*}"
