@@ -3,10 +3,9 @@
 # deal with the flags
 
 # possible flags:
-# -f pattern for files
-# -t pattern for tests
+# -f files location
+# -t pattern for tests (inputs)
 # -e pattern for expected
-# -d project directory
 # -j for tests in json
 
 # finished flags:
@@ -17,6 +16,7 @@
 # -l for listing the flags
 # -h for help
 # -v for not using valgrind
+# -d project directory
 
 
 GREEN='\033[0;32m'
