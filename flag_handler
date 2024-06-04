@@ -32,7 +32,7 @@ valgrind="true"
 dir="false"
 comp_dir=""
 
-while getopts "c:r:xa:hld:" opt; do
+while getopts "c:r:xa:hld:v" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
@@ -82,7 +82,7 @@ while getopts "c:r:xa:hld:" opt; do
       fi
       ;;
     \?)
-      echo "$RED" "Invalid option: -$OPTARG" "$NC" >&2
+      echo -e "$RED" "Invalid option: -$OPTARG" "$NC"
       exit 1
       ;;
   esac
