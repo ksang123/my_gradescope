@@ -43,7 +43,10 @@ else
   /usr/bin/$compiler $proj_dir -o ~/.output_exe
 fi
 
+cd (dirname $proj_dir)
 if [ "$valgrind" ]; then
+  $exe_dir/testing -v
+else
   $exe_dir/testing
 fi
 
