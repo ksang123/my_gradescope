@@ -20,6 +20,9 @@ proj_dir="$HOME/.gradescope"
 defaults="$HOME/.defaults"
 #get the default compiler and flags
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
+flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
+
+echo "$flags"
 
 while getopts "c:" opt; do
   case $opt in
@@ -34,4 +37,4 @@ while getopts "c:" opt; do
 done
 
 # save the compiler and flags
-sed -i 's/^compiler:.*/compiler: $compiler' "$defaults"
+sed -i "s/^compiler:.*/compiler: $compiler/" "$defaults"
