@@ -12,8 +12,8 @@
 # finished flags:
 # -c for compiler
 # -a for adding flags
-# -r :flag: for remove a flag
-# -r for removing all flags
+# -r to remove a flag
+# -x for remove all
 # -l for listing the flags
 # -h for help
 
@@ -24,7 +24,7 @@ defaults="$HOME/.defaults"
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
 
-while getopts "c:r:ra:hl" opt; do
+while getopts "c:r:xa:hl" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
@@ -34,20 +34,17 @@ while getopts "c:r:ra:hl" opt; do
       flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
       ;;
     r)
-      echo "$OPTARG"
-      if [ "$OPTARG" ]; then
-        flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
-        echo "compiler: $compiler" > "$defaults"
-        echo "$OPTARG"
-        echo "$flags" | while read -r flag; do
-          if [ "$flag" != "$OPTARG" ]; then
-            echo "flag: $flag" >> "$defaults"
-          fi
-        done
-      else
-        echo "compiler: $compiler" > "$defaults"
-        flags=""
-      fi
+      flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
+      echo "compiler: $compiler" > "$defaults"
+      echo "$flags" | while read -r flag; do
+        if [ "$flag" != "$OPTARG" ]; then
+          echo "flag: $flag" >> "$defaults"
+        fi
+      done
+      ;;
+    x)
+      echo "compiler: $compiler" > "$defaults"
+      flags=""
       ;;
     l)
       echo "$flags"
