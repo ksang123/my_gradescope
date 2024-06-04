@@ -17,7 +17,7 @@
 # finished flags:
 
 proj_dir="$HOME/.gradescope"
-defaults= "$HOME/.defaults"
+defaults="$HOME/.defaults"
 #get the default compiler and flags
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
 
