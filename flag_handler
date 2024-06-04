@@ -92,4 +92,10 @@ echo "$flags" | while read -r flag; do
 done
 
 #COMPILATION WOOOOOO
-
+comp_flags=""
+if [ valgrind ]; then
+  comp_flags+="-v "
+fi
+if [ dir ]; then
+  comp_flags+="-d $comp_dir"
+"$proj_dir/compilation" "$comp_flags"
