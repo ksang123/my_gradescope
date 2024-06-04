@@ -17,6 +17,7 @@ NC='\033[0m'
 
 valgrind="false"
 proj_dir=""
+defaults="$HOME/.defaults"
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //')
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
 
