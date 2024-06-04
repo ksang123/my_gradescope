@@ -59,5 +59,6 @@ echo "compiler: $compiler" > "$defaults"
 for flag in "$flags"; do
   if [ "$flag" ]; then
     printf "flag: %s\n" "$flag" >> "$defaults"
+    echo "i hate myself"
   fi
 done
