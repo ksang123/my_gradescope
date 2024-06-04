@@ -53,5 +53,7 @@ while getopts "c:r:" opt; do
 done
 
 # save the compiler and flags
-sed -i "s/^compiler:.*/compiler: $compiler/" "$defaults"
-echo "save the flags here"
+echo "compiler: $compiler" > "$defaults"
+for flag in "$flags"; do
+  echo "$flag"
+done
