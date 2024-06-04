@@ -55,6 +55,6 @@ done
 
 # save the compiler and flags
 echo "compiler: $compiler" > "$defaults"
-for flag in "$flags"; do
+for flag in "${flags[@]}"; do
   echo "flag: $flag" >> "$defaults"
 done
