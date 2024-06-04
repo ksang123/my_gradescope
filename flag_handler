@@ -31,7 +31,7 @@ while getopts "c:rr:a:" opt; do
       ;;
     a)
       echo "flag: $OPTARG" >> "$defaults" #remove the \n
-      flags=$(grep "^flag:" "$defaults" | cut -d ' ')
+      flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f)
       ;;
     r)
       if [ "$OPTARG" ]; then
