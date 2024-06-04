@@ -21,6 +21,7 @@ while getopts "v" opt; do
   esac
 done
 
+echo $valgrind
 #simple testing
 for test_file in test*.in; do
   test_number="${test_file%.*}"
