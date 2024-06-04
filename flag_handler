@@ -37,6 +37,7 @@ while getopts "c:r:xa:hl" opt; do
       flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
       echo "compiler: $compiler" > "$defaults"
       echo "$flags" | while read -r flag; do
+        echo "$flag $OPTARG"
         if [ "$flag" != "$OPTARG" ]; then
           echo "flag: $flag" >> "$defaults"
         fi
