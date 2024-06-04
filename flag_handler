@@ -101,5 +101,5 @@ if [ "$valgrind" == "true" ]; then
 fi
 if [ "$comp_dir" ]; then
   comp_flags+="-d $comp_dir"
+  $proj_dir/compilation $comp_flags
 fi
-"$proj_dir/compilation" "$comp_flags"
