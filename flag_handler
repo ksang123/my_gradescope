@@ -30,7 +30,7 @@ while getopts "c:rr:a:" opt; do
       compiler="$OPTARG"
       ;;
     a)
-      echo "flag: 1 $OPTARG" >> "$defaults" #remove the \n
+      echo "flag: 1 $OPTARG" #remove the \n
       flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
       ;;
     r)
@@ -56,5 +56,5 @@ done
 # save the compiler and flags
 echo "compiler: $compiler" > "$defaults"
 for flag in "$flags"; do
-  echo "flag: " "$flag" >> "$defaults"
+  echo "flag: $flag" >> "$defaults"
 done
