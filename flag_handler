@@ -1,11 +1,8 @@
 #!/bin/bash
 
 # deal with the flags
+
 # possible flags:
-# -c for compiler
-# -a for adding flags
-# -r :flag: for remove a flag
-# -r for removing all flags
 # -l for listing the flags
 # -h for help
 # -f pattern for files
@@ -15,6 +12,11 @@
 # -j for tests in json
 
 # finished flags:
+# -c for compiler
+# -a for adding flags
+# -r :flag: for remove a flag
+# -r for removing all flags
+
 
 proj_dir="$HOME/.gradescope"
 defaults="$HOME/.defaults"
@@ -22,12 +24,20 @@ defaults="$HOME/.defaults"
 compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
 
-echo "$flags"
-
-while getopts "c:" opt; do
+while getopts "c:r:" opt; do
   case $opt in
     c)
       compiler="$OPTARG"
+      ;;
+    a)
+      echo "add the flag"
+      ;;
+    r)
+      if [ "$OPTARG" ]; then
+        echo "remove a single flag"
+      else
+        echo "remove all flags"
+      fi
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
