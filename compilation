@@ -36,8 +36,4 @@ while getopts "vd:" opt; do
   esac
 done
 
-if [ "$proj_dir" ]; then
-  cd "$proj_dir"
-fi
-
-"$compiler $flags proj_dir -o output_executable"
+"$compiler $flags $proj_dir -o output_executable"
