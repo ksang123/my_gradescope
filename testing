@@ -32,7 +32,7 @@ for test_file in test*.in; do
   fi
 done
 
-if [ "$valgrind" ]; then
+if [ "$valgrind" == "true" ]; then
   for test_file in test*.in; do
     test_number="${test_file%.*}"
     if ! valgrind_output=$(valgrind --leak-check=full ~/$source_file < "$test_file" 2>&1 | grep "definitely lost"); then
