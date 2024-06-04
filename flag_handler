@@ -56,5 +56,7 @@ done
 # save the compiler and flags
 echo "compiler: $compiler" > "$defaults"
 echo "$flags" | while read -r flag; do
-  echo "flag: $flag" >> "$defaults"
+  if [ -n "$flag" ]; then
+    echo "flag: $flag" >> "$defaults"
+  fi
 done
