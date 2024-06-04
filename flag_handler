@@ -16,13 +16,15 @@
 # -x for remove all
 # -l for listing the flags
 # -h for help
+# -v for not using valgrind
 
 
 proj_dir="$HOME/.gradescope"
 defaults="$HOME/.defaults"
 #get the default compiler and flags
-compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //') 
+compiler=$(grep "compiler: " "$defaults" | sed 's/compiler: //')
 flags=$(grep "^flag:" "$defaults" | cut -d ' ' -f 2-)
+valgrind=true
 
 while getopts "c:r:xa:hl" opt; do
   case $opt in
@@ -56,6 +58,9 @@ while getopts "c:r:xa:hl" opt; do
     h)
       echo "kill yourself"
       ;;
+    v)
+      valgrind=false
+      ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
@@ -70,3 +75,6 @@ echo "$flags" | while read -r flag; do
     echo "flag: $flag" >> "$defaults"
   fi
 done
+
+#COMPILATION WOOOOOO
+
