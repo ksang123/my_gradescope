@@ -27,6 +27,7 @@ while getopts "vd:" opt; do
       ;;
     d)
       proj_dir="$OPTARG"
+      ;;
     \?)
       echo -e "$RED" "Invalid option: -$OPTARG" "$NC"
       exit 1
