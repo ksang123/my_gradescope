@@ -78,7 +78,6 @@ while getopts "c:r:xa:hld:v" opt; do
         echo -e "$RED" "File does not exist." "$NC"
         exit
       fi
-      echo "$comp_dir"
       ;;
     \?)
       echo -e "$RED" "Invalid option: -$OPTARG" "$NC"
@@ -102,6 +101,5 @@ if [ "$valgrind" == "true" ]; then
 fi
 if [ "$comp_dir" ]; then
   comp_flags+=" -d $comp_dir"
-  echo "$comp_dir"
 fi
-"$proj_dir/compilation" "$comp_flags"
+echo "$proj_dir/compilation" "$comp_flags"
