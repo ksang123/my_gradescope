@@ -47,7 +47,11 @@ while getopts "c:r:xa:hl" opt; do
       flags=""
       ;;
     l)
-      echo "$flags"
+      if [ "$flags" ]; then
+        echo "$flags"
+      else
+        echo "no flags"
+      fi
       ;;
     h)
       echo "kill yourself"
